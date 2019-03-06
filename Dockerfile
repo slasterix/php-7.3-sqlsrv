@@ -2,9 +2,6 @@ FROM slasterix/docker-ubuntu-apache-php7.3
 
 ENV ACCEPT_EULA=Y
 
-RUN curl https://packages.microsoft.com/keys/microsoft.asc |  apt-key add -
-RUN curl https://packages.microsoft.com/config/ubuntu/18.04/mssql-server-2017.list | tee /etc/apt/sources.list.d/mssql-server-2017.list
-
 RUN add-apt-repository ppa:ondrej/php
 RUN apt-get update
 RUN apt-get install php7.3 php7.3-dev php7.3-xml -y --allow-unauthenticated
