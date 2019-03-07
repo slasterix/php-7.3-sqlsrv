@@ -16,5 +16,6 @@ RUN pecl install pdo_sqlsrv
 RUN cd /etc/php/7.3/mods-available && \
     touch 30-pdo_sqlsrv.ini && \
     touch 20-sqlsrv.ini && \
-    echo extension=pdo_sqlsrv.so >> 30-pdo_sqlsrv.ini && \
-    echo extension=sqlsrv.so >> 20-sqlsrv.ini 
+    echo extension=pdo_sqlsrv.so >> pdo_sqlsrv.ini && \
+    echo extension=sqlsrv.so >> sqlsrv.ini && \
+    phpenmod sqlsrv
