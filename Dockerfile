@@ -13,5 +13,8 @@ RUN apt-get install -y unixodbc-dev
 
 RUN pecl install sqlsrv
 RUN pecl install pdo_sqlsrv
-RUN extension=pdo_sqlsrv.so >> `php --ini | grep "Scan for additional .ini files" | sed -e "s|.*:\s*||"`/30-pdo_sqlsrv.ini
-RUN extension=sqlsrv.so >> `php --ini | grep "Scan for additional .ini files" | sed -e "s|.*:\s*||"`/20-sqlsrv.ini
+RUN cd /etc/php/7.3/mods-avaible
+RUN touch 30-pdo_sqlsrv.ini
+RUN touch 20-sqlsrv.ini
+RUN echo extension=pdo_sqlsrv.so >> 30-pdo_sqlsrv.ini
+RUN echo extension=sqlsrv.so >> 20-sqlsrv.ini
