@@ -4,7 +4,10 @@ ENV ACCEPT_EULA=Y
 
 RUN add-apt-repository ppa:ondrej/php
 RUN apt-get update
-RUN apt-get install -y php7.3 php7.3-dev php7.3-xml --allow-unauthenticated
+RUN apt-get install -y php7.3 php7.3-fpm php7.3-dev php7.3-xml --allow-unauthenticated
+RUN a2enmod headers proxy proxy_http ssl rewrite mpm_prefork; \
+    a2dismod mpm_event; \
+    apt-get update;
 RUN curl https://packages.microsoft.com/keys/microsoft.asc | apt-key add -
 RUN curl https://packages.microsoft.com/config/ubuntu/18.04/prod.list > /etc/apt/sources.list.d/mssql-release.list
 RUN apt-get update
