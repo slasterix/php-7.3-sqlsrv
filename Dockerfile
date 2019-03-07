@@ -13,8 +13,6 @@ RUN apt-get install -y unixodbc-dev
 
 RUN pecl install sqlsrv
 RUN pecl install pdo_sqlsrv
-RUN cd /etc/php/7.3/mods-available
-RUN touch 30-pdo_sqlsrv.ini
-RUN touch 20-sqlsrv.ini
+RUN cd /etc/php/7.3/mods-available && touch 30-pdo_sqlsrv.ini && touch 20-sqlsrv.ini
 RUN echo extension=pdo_sqlsrv.so >> 30-pdo_sqlsrv.ini
 RUN echo extension=sqlsrv.so >> 20-sqlsrv.ini
