@@ -14,6 +14,8 @@ RUN echo 'export PATH="$PATH:/opt/mssql-tools/bin"' >> ~/.bash_profile && \
 RUN /bin/bash -c 'source ~/.bashrc' 
 RUN apt-get install -y unixodbc-dev
 
+RUN pecl config-set php_ini /etc/php/7.3/apache2/php.ini
+
 RUN pecl install sqlsrv
 RUN pecl install pdo_sqlsrv
 #RUN cd /etc/php/7.3/mods-available && \
