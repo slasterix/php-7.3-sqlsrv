@@ -18,9 +18,10 @@ RUN pecl config-set php_ini /etc/php/7.3/apache2/php.ini
 
 RUN pecl install sqlsrv
 RUN pecl install pdo_sqlsrv
-#RUN cd /etc/php/7.3/mods-available && \
-#    touch 30-pdo_sqlsrv.ini && \
-#    touch 20-sqlsrv.ini && \
-#    echo extension=pdo_sqlsrv.so >> pdo_sqlsrv.ini && \
-#    echo extension=sqlsrv.so >> sqlsrv.ini && \
-#    phpenmod sqlsrv
+RUN cd /etc/php/7.3/mods-available && \
+    touch pdo_sqlsrv.ini && \
+    touch sqlsrv.ini && \
+    echo extension=pdo_sqlsrv.so >> pdo_sqlsrv.ini && \
+    echo extension=sqlsrv.so >> sqlsrv.ini && \
+    phpenmod sqlsrv
+    phpenmod pdo_sqlsrv
