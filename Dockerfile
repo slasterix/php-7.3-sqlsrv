@@ -8,7 +8,7 @@ RUN apt-get install -y php7.3 php7.3-dev php7.3-xml --allow-unauthenticated
 RUN curl https://packages.microsoft.com/keys/microsoft.asc | apt-key add -
 RUN curl https://packages.microsoft.com/config/ubuntu/18.04/prod.list > /etc/apt/sources.list.d/mssql-release.list
 RUN apt-get update
-RUN ACCEPT_EULA=Y apt-get install -y msodbcsql mssql-tools
+RUN ACCEPT_EULA=Y apt-get install -y msodbcsql=13.1.4.0-1 mssql-tools
 RUN echo 'export PATH="$PATH:/opt/mssql-tools/bin"' >> ~/.bash_profile && \
     echo 'export PATH="$PATH:/opt/mssql-tools/bin"' >> ~/.bashrc 
 RUN /bin/bash -c 'source ~/.bashrc' 
