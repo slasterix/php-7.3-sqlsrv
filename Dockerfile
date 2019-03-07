@@ -23,5 +23,5 @@ RUN cd /etc/php/7.3/mods-available && \
     touch sqlsrv.ini && \
     echo extension=pdo_sqlsrv.so >> pdo_sqlsrv.ini && \
     echo extension=sqlsrv.so >> sqlsrv.ini && \
-    phpenmod sqlsrv
+    phpenmod sqlsrv && \
     phpenmod pdo_sqlsrv
