@@ -11,7 +11,7 @@ RUN apt-get update
 RUN ACCEPT_EULA=Y apt-get install -y msodbcsql17 mssql-tools
 RUN echo 'export PATH="$PATH:/opt/mssql-tools/bin"' >> ~/.bash_profile && \
     echo 'export PATH="$PATH:/opt/mssql-tools/bin"' >> ~/.bashrc 
-RUN source /root/.bashrc
+RUN /bin/bash -c 'source ~/.bashrc' 
 RUN apt-get install -y unixodbc-dev
 
 RUN pecl install sqlsrv
