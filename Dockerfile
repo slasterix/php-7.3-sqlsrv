@@ -25,5 +25,3 @@ RUN cd /etc/php/7.3/mods-available && \
     echo extension=sqlsrv.so >> sqlsrv.ini && \
     phpenmod sqlsrv && \
     phpenmod pdo_sqlsrv
-    
-RUN apt-get install -y libssl1.0.0 libcrypto.so.1.0.0
